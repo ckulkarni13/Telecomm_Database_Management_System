@@ -1,0 +1,1509 @@
+openapi: 3.0.0
+info:
+  title: Telecommunication Management System
+  description: API for Telecommunication Management System
+  version: 1.0.0
+servers:
+- url: http://localhost:3000
+tags:
+- name: ServiceProvider
+  description: Operations related to Service Providers
+- name: Device
+  description: Operations related to Devices
+- name: Plans
+  description: Operations related to Plans
+- name: Service
+  description: Operations related to Services
+- name: ServiceSubscription
+  description: Operations related to Service Subscriptions
+- name: CallRecord
+  description: Operations related to Call Records
+- name: Location
+  description: Operations related to Locations
+- name: Department
+  description: Operations related to Department entities
+- name: Customer
+  description: Operations related to Customers
+- name: ServiceContract
+  description: Operations related to Service Contracts
+- name: Billing
+  description: Operations related to Billing
+- name: Employee
+  description: Operations related to Employee entities
+- name: CustomerQuery
+  description: Operations related to Customer Queries
+paths:
+  /api/ServiceProvider:
+    get:
+      tags:
+      - ServiceProvider
+      summary: Retrieve all service providers
+      operationId: apiServiceProviderGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: ServiceProvider
+    post:
+      tags:
+      - ServiceProvider
+      summary: Create a new service provider
+      operationId: apiServiceProviderPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_ServiceProvider_body'
+        required: true
+      responses:
+        "201":
+          description: Service provider created successfully
+      x-swagger-router-controller: ServiceProvider
+  /api/ServiceProvider/{providerId}:
+    get:
+      tags:
+      - ServiceProvider
+      summary: Retrieve a specific service provider
+      operationId: apiServiceProviderProviderIdGET
+      parameters:
+      - name: providerId
+        in: path
+        description: ID of the service provider
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: ServiceProvider
+    put:
+      tags:
+      - ServiceProvider
+      summary: Update a specific service provider
+      operationId: apiServiceProviderProviderIdPUT
+      parameters:
+      - name: providerId
+        in: path
+        description: ID of the service provider
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceProvider_providerId_body'
+        required: true
+      responses:
+        "200":
+          description: Service provider updated successfully
+      x-swagger-router-controller: ServiceProvider
+    delete:
+      tags:
+      - ServiceProvider
+      summary: Delete a specific service provider
+      operationId: apiServiceProviderProviderIdDELETE
+      parameters:
+      - name: providerId
+        in: path
+        description: ID of the service provider
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Service provider deleted successfully
+      x-swagger-router-controller: ServiceProvider
+  /api/Device:
+    get:
+      tags:
+      - Device
+      summary: Retrieve all devices
+      operationId: apiDeviceGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Device
+    post:
+      tags:
+      - Device
+      summary: Create a new device
+      operationId: apiDevicePOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_Device_body'
+        required: true
+      responses:
+        "201":
+          description: Device created successfully
+      x-swagger-router-controller: Device
+  /api/Device/{deviceId}:
+    get:
+      tags:
+      - Device
+      summary: Retrieve a specific device
+      operationId: apiDeviceDeviceIdGET
+      parameters:
+      - name: deviceId
+        in: path
+        description: ID of the device
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Device
+    put:
+      tags:
+      - Device
+      summary: Update a specific device
+      operationId: apiDeviceDeviceIdPUT
+      parameters:
+      - name: deviceId
+        in: path
+        description: ID of the device
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Device_deviceId_body'
+        required: true
+      responses:
+        "200":
+          description: Device updated successfully
+      x-swagger-router-controller: Device
+    delete:
+      tags:
+      - Device
+      summary: Delete a specific device
+      operationId: apiDeviceDeviceIdDELETE
+      parameters:
+      - name: deviceId
+        in: path
+        description: ID of the device
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Device deleted successfully
+      x-swagger-router-controller: Device
+  /api/Plans:
+    get:
+      tags:
+      - Plans
+      summary: Retrieve all plans
+      operationId: apiPlansGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Plans
+    post:
+      tags:
+      - Plans
+      summary: Create a new plan
+      operationId: apiPlansPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_Plans_body'
+        required: true
+      responses:
+        "201":
+          description: Plan created successfully
+      x-swagger-router-controller: Plans
+  /api/Plans/{planId}:
+    get:
+      tags:
+      - Plans
+      summary: Retrieve a specific plan
+      operationId: apiPlansPlanIdGET
+      parameters:
+      - name: planId
+        in: path
+        description: ID of the plan
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Plans
+    put:
+      tags:
+      - Plans
+      summary: Update a specific plan
+      operationId: apiPlansPlanIdPUT
+      parameters:
+      - name: planId
+        in: path
+        description: ID of the plan
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Plans_planId_body'
+        required: true
+      responses:
+        "200":
+          description: Plan updated successfully
+      x-swagger-router-controller: Plans
+    delete:
+      tags:
+      - Plans
+      summary: Delete a specific plan
+      operationId: apiPlansPlanIdDELETE
+      parameters:
+      - name: planId
+        in: path
+        description: ID of the plan
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Plan deleted successfully
+      x-swagger-router-controller: Plans
+  /api/Service:
+    get:
+      tags:
+      - Service
+      summary: Retrieve all services
+      operationId: apiServiceGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Service
+    post:
+      tags:
+      - Service
+      summary: Create a new service
+      operationId: apiServicePOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_Service_body'
+        required: true
+      responses:
+        "201":
+          description: Service created successfully
+      x-swagger-router-controller: Service
+  /api/Service/{serviceId}:
+    get:
+      tags:
+      - Service
+      summary: Retrieve a specific service
+      operationId: apiServiceServiceIdGET
+      parameters:
+      - name: serviceId
+        in: path
+        description: ID of the service
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Service
+    put:
+      tags:
+      - Service
+      summary: Update a specific service
+      operationId: apiServiceServiceIdPUT
+      parameters:
+      - name: serviceId
+        in: path
+        description: ID of the service
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Service_serviceId_body'
+        required: true
+      responses:
+        "200":
+          description: Service updated successfully
+      x-swagger-router-controller: Service
+    delete:
+      tags:
+      - Service
+      summary: Delete a specific service
+      operationId: apiServiceServiceIdDELETE
+      parameters:
+      - name: serviceId
+        in: path
+        description: ID of the service
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Service deleted successfully
+      x-swagger-router-controller: Service
+  /api/ServiceSubscription:
+    get:
+      tags:
+      - ServiceSubscription
+      summary: Retrieve all service subscriptions
+      operationId: apiServiceSubscriptionGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: ServiceSubscription
+    post:
+      tags:
+      - ServiceSubscription
+      summary: Create a new service subscription
+      operationId: apiServiceSubscriptionPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_ServiceSubscription_body'
+        required: true
+      responses:
+        "201":
+          description: Service subscription created successfully
+      x-swagger-router-controller: ServiceSubscription
+  /api/ServiceSubscription/{subscriptionId}:
+    get:
+      tags:
+      - ServiceSubscription
+      summary: Retrieve a specific service subscription
+      operationId: apiServiceSubscriptionSubscriptionIdGET
+      parameters:
+      - name: subscriptionId
+        in: path
+        description: ID of the service subscription
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: ServiceSubscription
+    put:
+      tags:
+      - ServiceSubscription
+      summary: Update a specific service subscription
+      operationId: apiServiceSubscriptionSubscriptionIdPUT
+      parameters:
+      - name: subscriptionId
+        in: path
+        description: ID of the service subscription
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceSubscription_subscriptionId_body'
+        required: true
+      responses:
+        "200":
+          description: Service subscription updated successfully
+      x-swagger-router-controller: ServiceSubscription
+    delete:
+      tags:
+      - ServiceSubscription
+      summary: Delete a specific service subscription
+      operationId: apiServiceSubscriptionSubscriptionIdDELETE
+      parameters:
+      - name: subscriptionId
+        in: path
+        description: ID of the service subscription
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Service subscription deleted successfully
+      x-swagger-router-controller: ServiceSubscription
+  /api/CallRecord:
+    get:
+      tags:
+      - CallRecord
+      summary: Retrieve all call records
+      operationId: apiCallRecordGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: CallRecord
+    post:
+      tags:
+      - CallRecord
+      summary: Create a new call record
+      operationId: apiCallRecordPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_CallRecord_body'
+        required: true
+      responses:
+        "201":
+          description: Call record created successfully
+      x-swagger-router-controller: CallRecord
+  /api/CallRecord/{callRecordId}:
+    get:
+      tags:
+      - CallRecord
+      summary: Retrieve a specific call record
+      operationId: apiCallRecordCallRecordIdGET
+      parameters:
+      - name: callRecordId
+        in: path
+        description: ID of the Call Record
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: CallRecord
+    put:
+      tags:
+      - CallRecord
+      summary: Update a specific call record
+      operationId: apiCallRecordCallRecordIdPUT
+      parameters:
+      - name: callRecordId
+        in: path
+        description: ID of the Call Record
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CallRecord_callRecordId_body'
+        required: true
+      responses:
+        "200":
+          description: Service subscription updated successfully
+      x-swagger-router-controller: CallRecord
+    delete:
+      tags:
+      - CallRecord
+      summary: Delete a specific service subscription
+      operationId: apiCallRecordCallRecordIdDELETE
+      parameters:
+      - name: callRecordId
+        in: path
+        description: ID of the Call Record
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Service subscription deleted successfully
+      x-swagger-router-controller: CallRecord
+  /api/Location:
+    get:
+      tags:
+      - Location
+      summary: Retrieve all locations
+      operationId: apiLocationGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Location
+    post:
+      tags:
+      - Location
+      summary: Create a new location
+      operationId: apiLocationPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_Location_body'
+        required: true
+      responses:
+        "201":
+          description: Location created successfully
+      x-swagger-router-controller: Location
+  /api/Location/{locationId}:
+    get:
+      tags:
+      - Location
+      summary: Retrieve a specific location
+      operationId: apiLocationLocationIdGET
+      parameters:
+      - name: locationId
+        in: path
+        description: ID of the location
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Location
+    put:
+      tags:
+      - Location
+      summary: Update a specific location
+      operationId: apiLocationLocationIdPUT
+      parameters:
+      - name: locationId
+        in: path
+        description: ID of the location
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Location_locationId_body'
+        required: true
+      responses:
+        "200":
+          description: Location updated successfully
+      x-swagger-router-controller: Location
+    delete:
+      tags:
+      - Location
+      summary: Delete a specific location
+      operationId: apiLocationLocationIdDELETE
+      parameters:
+      - name: locationId
+        in: path
+        description: ID of the location
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Location deleted successfully
+      x-swagger-router-controller: Location
+  /api/Department:
+    get:
+      tags:
+      - Department
+      summary: Retrieve all departments
+      operationId: apiDepartmentGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Department
+    post:
+      tags:
+      - Department
+      summary: Create a new department
+      operationId: apiDepartmentPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_Department_body'
+        required: true
+      responses:
+        "201":
+          description: Department created successfully
+      x-swagger-router-controller: Department
+  /api/Department/{departmentId}:
+    get:
+      tags:
+      - Department
+      summary: Retrieve a specific department
+      operationId: apiDepartmentDepartmentIdGET
+      parameters:
+      - name: departmentId
+        in: path
+        description: ID of the department
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Department
+    put:
+      tags:
+      - Department
+      summary: Update a specific department
+      operationId: apiDepartmentDepartmentIdPUT
+      parameters:
+      - name: departmentId
+        in: path
+        description: ID of the department
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Department_departmentId_body'
+        required: true
+      responses:
+        "200":
+          description: Department updated successfully
+      x-swagger-router-controller: Department
+    delete:
+      tags:
+      - Department
+      summary: Delete a specific department
+      operationId: apiDepartmentDepartmentIdDELETE
+      parameters:
+      - name: departmentId
+        in: path
+        description: ID of the department
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Department deleted successfully
+      x-swagger-router-controller: Department
+  /api/Customer:
+    get:
+      tags:
+      - Customer
+      summary: Retrieve all customers
+      operationId: apiCustomerGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Customer
+    post:
+      tags:
+      - Customer
+      summary: Create a new customer
+      operationId: apiCustomerPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_Customer_body'
+        required: true
+      responses:
+        "201":
+          description: Customer created successfully
+      x-swagger-router-controller: Customer
+  /api/Customer/{customerId}:
+    get:
+      tags:
+      - Customer
+      summary: Retrieve a specific customer
+      operationId: apiCustomerCustomerIdGET
+      parameters:
+      - name: customerId
+        in: path
+        description: ID of the customer
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Customer
+    put:
+      tags:
+      - Customer
+      summary: Update a specific customer
+      operationId: apiCustomerCustomerIdPUT
+      parameters:
+      - name: customerId
+        in: path
+        description: ID of the customer
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer_customerId_body'
+        required: true
+      responses:
+        "200":
+          description: Customer updated successfully
+      x-swagger-router-controller: Customer
+    delete:
+      tags:
+      - Customer
+      summary: Delete a specific customer
+      operationId: apiCustomerCustomerIdDELETE
+      parameters:
+      - name: customerId
+        in: path
+        description: ID of the customer
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Customer deleted successfully
+      x-swagger-router-controller: Customer
+  /api/ServiceContract:
+    get:
+      tags:
+      - ServiceContract
+      summary: Retrieve all service contracts
+      operationId: apiServiceContractGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: ServiceContract
+    post:
+      tags:
+      - ServiceContract
+      summary: Create a new service contract
+      operationId: apiServiceContractPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_ServiceContract_body'
+        required: true
+      responses:
+        "201":
+          description: Service contract created successfully
+      x-swagger-router-controller: ServiceContract
+  /api/ServiceContract/{contractId}:
+    get:
+      tags:
+      - ServiceContract
+      summary: Retrieve a specific service contract
+      operationId: apiServiceContractContractIdGET
+      parameters:
+      - name: contractId
+        in: path
+        description: ID of the service contract
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: ServiceContract
+    put:
+      tags:
+      - ServiceContract
+      summary: Update a specific service contract
+      operationId: apiServiceContractContractIdPUT
+      parameters:
+      - name: contractId
+        in: path
+        description: ID of the service contract
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceContract_contractId_body'
+        required: true
+      responses:
+        "200":
+          description: Service contract updated successfully
+      x-swagger-router-controller: ServiceContract
+    delete:
+      tags:
+      - ServiceContract
+      summary: Delete a specific service contract
+      operationId: apiServiceContractContractIdDELETE
+      parameters:
+      - name: contractId
+        in: path
+        description: ID of the service contract
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Service contract deleted successfully
+      x-swagger-router-controller: ServiceContract
+  /api/Billing:
+    get:
+      tags:
+      - Billing
+      summary: Retrieve all billing records
+      operationId: apiBillingGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Billing
+    post:
+      tags:
+      - Billing
+      summary: Create a new billing record
+      operationId: apiBillingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_Billing_body'
+        required: true
+      responses:
+        "201":
+          description: Billing record created successfully
+      x-swagger-router-controller: Billing
+  /api/Billing/{billingId}:
+    get:
+      tags:
+      - Billing
+      summary: Retrieve a specific billing record
+      operationId: apiBillingBillingIdGET
+      parameters:
+      - name: billingId
+        in: path
+        description: ID of the billing record
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Billing
+    put:
+      tags:
+      - Billing
+      summary: Update a specific billing record
+      operationId: apiBillingBillingIdPUT
+      parameters:
+      - name: billingId
+        in: path
+        description: ID of the billing record
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Billing_billingId_body'
+        required: true
+      responses:
+        "200":
+          description: Billing record updated successfully
+      x-swagger-router-controller: Billing
+    delete:
+      tags:
+      - Billing
+      summary: Delete a specific billing record
+      operationId: apiBillingBillingIdDELETE
+      parameters:
+      - name: billingId
+        in: path
+        description: ID of the billing record
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Billing record deleted successfully
+      x-swagger-router-controller: Billing
+  /api/Employee:
+    get:
+      tags:
+      - Employee
+      summary: Retrieve all employees
+      operationId: apiEmployeeGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Employee
+    post:
+      tags:
+      - Employee
+      summary: Create a new employee
+      operationId: apiEmployeePOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_Employee_body'
+        required: true
+      responses:
+        "201":
+          description: Employee created successfully
+      x-swagger-router-controller: Employee
+  /api/Employee/{employeeId}:
+    get:
+      tags:
+      - Employee
+      summary: Retrieve a specific employee
+      operationId: apiEmployeeEmployeeIdGET
+      parameters:
+      - name: employeeId
+        in: path
+        description: ID of the employee
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Employee
+    put:
+      tags:
+      - Employee
+      summary: Update a specific employee
+      operationId: apiEmployeeEmployeeIdPUT
+      parameters:
+      - name: employeeId
+        in: path
+        description: ID of the employee
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee_employeeId_body'
+        required: true
+      responses:
+        "200":
+          description: Employee updated successfully
+      x-swagger-router-controller: Employee
+    delete:
+      tags:
+      - Employee
+      summary: Delete a specific employee
+      operationId: apiEmployeeEmployeeIdDELETE
+      parameters:
+      - name: employeeId
+        in: path
+        description: ID of the employee
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Employee deleted successfully
+      x-swagger-router-controller: Employee
+  /api/CustomerQuery:
+    get:
+      tags:
+      - CustomerQuery
+      summary: Retrieve all customer queries
+      operationId: apiCustomerQueryGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: CustomerQuery
+    post:
+      tags:
+      - CustomerQuery
+      summary: Create a new customer query
+      operationId: apiCustomerQueryPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_CustomerQuery_body'
+        required: true
+      responses:
+        "201":
+          description: Customer query created successfully
+      x-swagger-router-controller: CustomerQuery
+  /api/CustomerQuery/{customerQueryId}:
+    get:
+      tags:
+      - CustomerQuery
+      summary: Retrieve a specific customer query
+      operationId: apiCustomerQueryCustomerQueryIdGET
+      parameters:
+      - name: customerQueryId
+        in: path
+        description: ID of the customer query
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: CustomerQuery
+    put:
+      tags:
+      - CustomerQuery
+      summary: Update a specific customer query
+      operationId: apiCustomerQueryCustomerQueryIdPUT
+      parameters:
+      - name: customerQueryId
+        in: path
+        description: ID of the customer query
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerQuery_customerQueryId_body'
+        required: true
+      responses:
+        "200":
+          description: Customer query updated successfully
+      x-swagger-router-controller: CustomerQuery
+    delete:
+      tags:
+      - CustomerQuery
+      summary: Delete a specific customer query
+      operationId: apiCustomerQueryCustomerQueryIdDELETE
+      parameters:
+      - name: customerQueryId
+        in: path
+        description: ID of the customer query
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Customer query deleted successfully
+      x-swagger-router-controller: CustomerQuery
+components:
+  schemas:
+    api_ServiceProvider_body:
+      type: object
+      properties:
+        Service_Provider_ID:
+          type: string
+        Phone_Number:
+          maxLength: 20
+          type: string
+    ServiceProvider_providerId_body:
+      type: object
+      properties:
+        Phone_Number:
+          maxLength: 20
+          type: string
+    api_Device_body:
+      type: object
+      properties:
+        Device_id:
+          type: string
+        Device_Model:
+          maxLength: 10
+          type: string
+        Device_Use:
+          maxLength: 50
+          type: string
+        Device_Cost:
+          type: number
+        Service_Provider_ID:
+          type: string
+    Device_deviceId_body:
+      type: object
+      properties:
+        Device_Model:
+          maxLength: 10
+          type: string
+        Device_Use:
+          maxLength: 50
+          type: string
+        Device_Cost:
+          type: number
+        Service_Provider_ID:
+          type: string
+    api_Plans_body:
+      type: object
+      properties:
+        Plan_ID:
+          type: string
+        Plan_Name:
+          maxLength: 100
+          type: string
+        Minutes_Limit:
+          maxLength: 100
+          type: string
+        SMS_Limit:
+          maxLength: 100
+          type: string
+        Free_Data_Limit:
+          maxLength: 100
+          type: string
+        Benefits:
+          maxLength: 100
+          type: string
+        Service_Provider_ID:
+          type: string
+    Plans_planId_body:
+      type: object
+      properties:
+        Plan_Name:
+          maxLength: 100
+          type: string
+        Minutes_Limit:
+          maxLength: 100
+          type: string
+        SMS_Limit:
+          maxLength: 100
+          type: string
+        Free_Data_Limit:
+          maxLength: 100
+          type: string
+        Benefits:
+          maxLength: 100
+          type: string
+        Service_Provider_ID:
+          type: string
+    api_Service_body:
+      type: object
+      properties:
+        Service_ID:
+          type: string
+        Service_Type:
+          maxLength: 100
+          type: string
+        Cost_Of_Service:
+          type: number
+    Service_serviceId_body:
+      type: object
+      properties:
+        Service_Type:
+          maxLength: 100
+          type: string
+        Cost_Of_Service:
+          type: number
+    api_ServiceSubscription_body:
+      type: object
+      properties:
+        Subscription_ID:
+          type: string
+        Start_Date:
+          type: string
+          format: date
+        End_Date:
+          type: string
+          format: date
+        Plan_ID:
+          type: string
+        Service_ID:
+          type: string
+    ServiceSubscription_subscriptionId_body:
+      type: object
+      properties:
+        Start_Date:
+          type: string
+          format: date
+        End_Date:
+          type: string
+          format: date
+        Plan_ID:
+          type: string
+        Service_ID:
+          type: string
+    api_CallRecord_body:
+      type: object
+      properties:
+        CallRecordID:
+          type: string
+        CallDuration:
+          type: integer
+        Timestamp_of_call:
+          type: string
+          format: date-time
+        CallType:
+          maxLength: 50
+          type: string
+        Service_Provider_ID:
+          type: string
+    CallRecord_callRecordId_body:
+      type: object
+      properties:
+        CallRecordID:
+          type: string
+        CallDuration:
+          type: integer
+        Timestamp_of_call:
+          type: string
+          format: date-time
+        CallType:
+          maxLength: 50
+          type: string
+        Service_Provider_ID:
+          type: string
+    api_Location_body:
+      type: object
+      properties:
+        Location_ID:
+          type: string
+        Location_Name:
+          maxLength: 50
+          type: string
+        Population:
+          type: integer
+    Location_locationId_body:
+      type: object
+      properties:
+        Location_Name:
+          maxLength: 50
+          type: string
+        Population:
+          type: integer
+    api_Department_body:
+      type: object
+      properties:
+        Department_ID:
+          type: string
+        Department_Name:
+          maxLength: 255
+          type: string
+        Department_Contact_No:
+          maxLength: 20
+          type: string
+    Department_departmentId_body:
+      type: object
+      properties:
+        Department_Name:
+          maxLength: 255
+          type: string
+        Department_Contact_No:
+          maxLength: 20
+          type: string
+    api_Customer_body:
+      type: object
+      properties:
+        Customer_ID:
+          type: string
+        First_Name:
+          maxLength: 50
+          type: string
+        Last_Name:
+          maxLength: 50
+          type: string
+        Address:
+          maxLength: 100
+          type: string
+        Date_of_Birth:
+          type: string
+          format: date
+        City:
+          maxLength: 50
+          type: string
+        Location_ID:
+          type: string
+    Customer_customerId_body:
+      type: object
+      properties:
+        First_Name:
+          maxLength: 50
+          type: string
+        Last_Name:
+          maxLength: 50
+          type: string
+        Address:
+          maxLength: 100
+          type: string
+        Date_of_Birth:
+          type: string
+          format: date
+        City:
+          maxLength: 50
+          type: string
+        Location_ID:
+          type: string
+    api_ServiceContract_body:
+      type: object
+      properties:
+        Contract_ID:
+          type: string
+        Start_Date:
+          type: string
+          format: date
+        End_Date:
+          type: string
+          format: date
+        Terms_And_Conditions:
+          type: string
+        Service_Provider_ID:
+          type: string
+        Customer_ID:
+          type: string
+    ServiceContract_contractId_body:
+      type: object
+      properties:
+        Start_Date:
+          type: string
+          format: date
+        End_Date:
+          type: string
+          format: date
+        Terms_And_Conditions:
+          type: string
+        Service_Provider_ID:
+          type: string
+        Customer_ID:
+          type: string
+    api_Billing_body:
+      type: object
+      properties:
+        Billing_ID:
+          type: string
+        Customer_ID:
+          type: string
+        Plan_ID:
+          type: string
+        Invoice_Number:
+          maxLength: 50
+          type: string
+        Payment_Status:
+          maxLength: 20
+          type: string
+    Billing_billingId_body:
+      type: object
+      properties:
+        Customer_ID:
+          type: string
+        Plan_ID:
+          type: string
+        Invoice_Number:
+          maxLength: 50
+          type: string
+        Payment_Status:
+          maxLength: 20
+          type: string
+    api_Employee_body:
+      type: object
+      properties:
+        Employee_ID:
+          type: string
+        First_Name:
+          maxLength: 255
+          type: string
+        Last_Name:
+          maxLength: 255
+          type: string
+        Salary:
+          type: number
+        Location_ID:
+          type: string
+        Department_ID:
+          type: string
+    Employee_employeeId_body:
+      type: object
+      properties:
+        First_Name:
+          maxLength: 255
+          type: string
+        Last_Name:
+          maxLength: 255
+          type: string
+        Salary:
+          type: number
+        Location_ID:
+          type: string
+        Department_ID:
+          type: string
+    api_CustomerQuery_body:
+      type: object
+      properties:
+        Customer_Query_ID:
+          type: string
+        Query_Type:
+          maxLength: 255
+          type: string
+        Severity_of_Issue:
+          type: integer
+        Employee_ID:
+          type: string
+    CustomerQuery_customerQueryId_body:
+      type: object
+      properties:
+        Query_Type:
+          maxLength: 255
+          type: string
+        Severity_of_Issue:
+          type: integer
+        Employee_ID:
+          type: string
